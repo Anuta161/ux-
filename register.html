@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Courses - Регистрация</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .registration-card {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .btn-primary {
+            background-color: #6e8efb;
+            border-color: #6e8efb;
+        }
+        .btn-primary:hover {
+            background-color: #5a7df4;
+            border-color: #5a7df4;
+        }
+        .form-control:focus {
+            border-color: #6e8efb;
+            box-shadow: 0 0 0 0.2rem rgba(110, 142, 251, 0.25);
+        }
+        #successMessage {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-user-circle mr-2"></i>UX Courses
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">Каталог курсов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learning.html">Обучение</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Поддержка</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Вход</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="btn btn-outline-light ml-2" href="register.html">Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Форма регистрации -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card shadow registration-card">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Регистрация</h2>
+                            
+                            <!-- Сообщение об успешной регистрации (изначально скрыто) -->
+                            <div id="successMessage" class="alert alert-success text-center">
+                                <h4><i class="fas fa-check-circle"></i> Регистрация успешна!</h4>
+                                <p>Вы будете перенаправлены в личный кабинет через <span id="countdown">3</span> секунды...</p>
+                            </div>
+                            
+                            <!-- Форма регистрации (изначально видима) -->
+                            <form id="registerForm">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="firstName">Имя</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Введите имя" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="lastName">Фамилия</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Введите фамилию" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Введите email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Пароль</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Придумайте пароль" required minlength="8">
+                                    <small class="form-text text-muted">Минимум 8 символов</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Подтверждение пароля</label>
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Повторите пароль" required>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="agree" required>
+                                    <label class="form-check-label" for="agree">Я согласен с <a href="#" data-toggle="modal" data-target="#termsModal">условиями использования</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block py-2">Зарегистрироваться</button>
+                            </form>
+                            <hr class="my-4">
+                            <p class="text-center mb-0">Уже есть аккаунт? <a href="login.html">Войдите</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно с условиями -->
+    <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Условия использования</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>1. Общие положения</h5>
+                    <p>1.1. Настоящие Условия регулируют отношения между UX Courses и Пользователем в связи с использованием сервиса.</p>
+                    <h5>2. Регистрация</h5>
+                    <p>2.1. Для доступа к некоторым функциям сервиса Пользователю необходимо пройти процедуру регистрации.</p>
+                    <h5>3. Конфиденциальность</h5>
+                    <p>3.1. Мы обязуемся защищать ваши персональные данные в соответствии с нашей Политикой конфиденциальности.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Я согласен</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>UX Courses</h5>
+                    <p>Профессиональные курсы по UX-дизайну для начинающих и практикующих специалистов.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope mr-2"></i> info@uxcourses.ru</li>
+                        <li><i class="fas fa-phone mr-2"></i> +7 (962) 858-83-62</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Социальные сети</h5>
+                    <a href="https://vk.com/club230021031" class="text-white mr-2"><i class="fab fa-vk fa-lg"></i></a>
+                    <a href="https://t.me/uxwwwesh" class="text-white mr-2"><i class="fab fa-telegram fa-lg"></i></a>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 UX Courses. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Получаем значения полей
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Проверка совпадения паролей
+            if (password !== confirmPassword) {
+                alert('Пароли не совпадают!');
+                return;
+            }
+            
+            // Проверка длины пароля
+            if (password.length < 8) {
+                alert('Пароль должен содержать минимум 8 символов!');
+                return;
+            }
+            
+            // Сохраняем данные пользователя
+            const userData = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password // В реальном приложении пароль должен хешироваться!
+            };
+            
+            localStorage.setItem('currentUser', JSON.stringify(userData));
+            
+            // Скрываем форму и показываем сообщение об успехе
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Обратный отсчет перед перенаправлением
+            let seconds = 3;
+            const countdown = setInterval(function() {
+                document.getElementById('countdown').textContent = seconds;
+                seconds--;
+                
+                if (seconds < 0) {
+                    clearInterval(countdown);
+                    window.location.href = 'account.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

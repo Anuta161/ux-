@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Design | UX Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Герой секция */
+        .course-hero {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF0000 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.05;
+        }
+        
+        /* Карточки модулей */
+        .module-card {
+            border-left: 4px solid #FF6B6B;
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .module-card .module-number {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255,107,107,0.1);
+            line-height: 1;
+        }
+        
+        /* Секция преподавателя */
+        .instructor-section {
+            background-color: #f8f9fa;
+        }
+        
+        .instructor-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Отзывы */
+        .review-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .review-author-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        
+        /* Адаптивные стили */
+        @media (max-width: 768px) {
+            .course-hero {
+                padding: 60px 0;
+                text-align: center;
+            }
+            
+            .course-hero .display-4 {
+                font-size: 2.5rem;
+            }
+            
+            .instructor-section .media {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .instructor-section .media img {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .course-hero {
+                padding: 40px 0;
+            }
+            
+            .course-hero .display-4 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-user-circle mr-2"></i>UX Courses
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">Каталог курсов</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="learning.html">Обучение</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultation.html">Консультации</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Поддержка</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light ml-2" href="register.html">Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция курса -->
+    <section class="course-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 position-relative">
+                    <span class="badge badge-warning mb-3">Средний уровень</span>
+                    <h1 class="display-4 mb-3">UI Design</h1>
+                    <p class="lead">6-недельный интенсив по созданию визуальных интерфейсов</p>
+                    <div class="d-flex flex-wrap align-items-center mb-4">
+                        <div class="mr-4 mb-2">
+                            <i class="fas fa-star text-warning mr-1"></i>
+                            <span>4.9 (86 отзывов)</span>
+                        </div>
+                        <div class="mr-4 mb-2">
+                            <i class="fas fa-user-graduate mr-1"></i>
+                            <span>452 студента</span>
+                        </div>
+                        <div class="mr-4 mb-2">
+                            <i class="fas fa-certificate mr-1"></i>
+                            <span>Сертификат</span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <a href="register.html" class="btn btn-light btn-lg mr-3 mb-2">Записаться на курс</a>
+                        <a href="#program" class="btn btn-outline-light btn-lg mb-2">Программа курса</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block position-relative">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="UI Design" class="img-fluid rounded shadow-lg">
+                    <div class="position-absolute" style="bottom: -20px; right: -20px; background: white; padding: 10px 15px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <span class="text-danger font-weight-bold">-30%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О курсе -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">О курсе</h2>
+                    <p class="lead">Научитесь создавать красивые и функциональные интерфейсы, которые понравятся пользователям и решат бизнес-задачи.</p>
+                    
+                    <p>Этот курс посвящен визуальному дизайну интерфейсов (UI Design). Вы освоите принципы композиции, цветокоррекции, типографики и анимации в интерфейсах. Научитесь создавать дизайн-системы и работать с современными инструментами.</p>
+                    
+                    <h3 class="mt-5 mb-4">Чему вы научитесь</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="fas fa-check text-danger"></i></span>Работать с цветом и типографикой</li>
+                                <li class="mb-2"><span class="fa-li"><i class="fas fa-check text-danger"></i></span>Создавать адаптивные интерфейсы</li>
+                                <li class="mb-2"><span class="fa-li"><i class="fas fa-check text-danger"></i></span>Разрабатывать дизайн-системы</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="fas fa-check text-danger"></i></span>Анимировать интерфейсы</li>
+                                <li class="mb-2"><span class="fa-li"><i class="fas fa-check text-danger"></i></span>Работать в Figma и Adobe XD</li>
+                                <li class="mb-2"><span class="fa-li"><i class="fas fa-check text-danger"></i></span>Готовить макеты к передаче разработчикам</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="mt-5 mb-4">Для кого этот курс</h3>
+                    <div class="alert alert-light">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="font-weight-bold mb-1"><i class="fas fa-check-circle text-danger mr-2"></i>Подойдет:</p>
+                                <ul>
+                                    <li>Начинающим UI-дизайнерам</li>
+                                    <li>UX-дизайнерам</li>
+                                    <li>Графическим дизайнерам</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="font-weight-bold mb-1"><i class="fas fa-times-circle text-secondary mr-2"></i>Не подойдет:</p>
+                                <ul>
+                                    <li>Опытным UI-дизайнерам</li>
+                                    <li>Тем, кто ищет курсы по графическому дизайну</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card shadow-sm sticky-top" style="top: 20px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Детали курса</h5>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="far fa-clock mr-2 text-danger"></i>Длительность</span>
+                                    <span class="badge badge-danger">6 недель</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-tasks mr-2 text-danger"></i>Уроки</span>
+                                    <span class="badge badge-danger">18 уроков</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-project-diagram mr-2 text-danger"></i>Проекты</span>
+                                    <span class="badge badge-danger">4 проекта</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-certificate mr-2 text-danger"></i>Сертификат</span>
+                                    <span class="badge badge-success">Да</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-language mr-2 text-danger"></i>Язык</span>
+                                    <span>Русский</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="mb-4">
+                                <h6 class="text-muted mb-3">Стоимость:</h6>
+                                <div class="d-flex align-items-center">
+                                    <h3 class="mb-0 text-danger">14 900 ₽</h3>
+                                    <small class="text-muted ml-2"><s>21 900 ₽</s></small>
+                                </div>
+                                <small class="text-success">Действует скидка 30% до 31.12.2023</small>
+                            </div>
+                            
+                            <a href="register.html" class="btn btn-danger btn-block btn-lg mb-2">Записаться сейчас</a>
+                            <a href="#" class="btn btn-outline-danger btn-block">Бесплатный урок</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Программа курса -->
+    <section id="program" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Программа курса</h2>
+            <div class="row">
+                <!-- Неделя 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="module-number">1</span>
+                            <span class="badge badge-danger mb-2">Неделя 1</span>
+                            <h4>Основы UI-дизайна</h4>
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Принципы визуального дизайна</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Работа с цветом и контрастом</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Типографика в интерфейсах</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Композиция и сетки</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Неделя 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="module-number">2</span>
+                            <span class="badge badge-danger mb-2">Неделя 2</span>
+                            <h4>Инструменты дизайнера</h4>
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Работа в Figma</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Adobe XD и Sketch</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Плагины и автоматизация</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Экспорт ресурсов</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Неделя 3 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="module-number">3</span>
+                            <span class="badge badge-danger mb-2">Неделя 3</span>
+                            <h4>Компоненты интерфейсов</h4>
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Кнопки, формы, инпуты</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Навигация и меню</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Карточки и списки</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Модальные окна</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Неделя 4 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="module-number">4</span>
+                            <span class="badge badge-danger mb-2">Неделя 4</span>
+                            <h4>Дизайн-системы</h4>
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Создание UI Kit</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Работа с компонентами</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Стили и переменные</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Документирование</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Неделя 5 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="module-number">5</span>
+                            <span class="badge badge-danger mb-2">Неделя 5</span>
+                            <h4>Анимация интерфейсов</h4>
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Принципы анимации</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Микровзаимодействия</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Прототипирование</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Инструменты для анимации</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Неделя 6 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="module-number">6</span>
+                            <span class="badge badge-danger mb-2">Неделя 6</span>
+                            <h4>Финальный проект</h4>
+                            <ul class="fa-ul">
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Разработка концепции</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Создание дизайн-системы</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Презентация проекта</li>
+                                <li class="mb-2"><span class="fa-li"><i class="far fa-circle text-danger"></i></span>Подготовка портфолио</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преподаватель -->
+    <section class="py-5 instructor-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Преподаватель</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="media align-items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="mr-4 rounded-circle instructor-img" alt="Преподаватель">
+                        <div class="media-body">
+                            <h3>Александра Ковалева</h3>
+                            <p class="text-muted">Lead UI Designer в Mail.ru Group</p>
+                            <p>Более 7 лет опыта в UI-дизайне. Работала над продуктами для Mail.ru, Сбербанка и Тинькофф. Специализируется на создании дизайн-систем и анимации интерфейсов. Преподает с 2018 года, выпустила более 500 студентов.</p>
+                            <div class="d-flex flex-wrap">
+                                <a href="#" class="btn btn-outline-danger btn-sm mr-2 mb-2"><i class="fab fa-behance mr-1"></i> Behance</a>
+                                <a href="#" class="btn btn-outline-danger btn-sm mr-2 mb-2"><i class="fab fa-dribbble mr-1"></i> Dribbble</a>
+                                <a href="#" class="btn btn-outline-danger btn-sm mr-2 mb-2"><i class="fab fa-linkedin mr-1"></i> LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Отзывы студентов</h2>
+            <div class="row">
+                <!-- Отзыв 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card review-card h-100">
+                        <div class="card-body">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"Отличный курс! Александра объясняет сложные вещи простым языком. После курса смогла устроиться на позицию junior UI-дизайнера."</p>
+                            <div class="media mt-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="mr-3 rounded-circle review-author-img" alt="Студент">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Екатерина Смирнова</h6>
+                                    <p class="text-muted small">UI-дизайнер в Райффайзенбанк</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card review-card h-100">
+                        <div class="card-body">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"Много практики и полезных лайфхаков. Особенно понравились уроки по анимации - теперь могу делать крутые интерактивные прототипы."</p>
+                            <div class="media mt-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="mr-3 rounded-circle review-author-img" alt="Студент">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Дмитрий Иванов</h6>
+                                    <p class="text-muted small">Фрилансер</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card review-card h-100">
+                        <div class="card-body">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="card-text">"Хорошая структура курса. Много практических заданий с проверкой. Хотелось бы больше примеров из реальных проектов."</p>
+                            <div class="media mt-3">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="mr-3 rounded-circle review-author-img" alt="Студент">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Анна Петрова</h6>
+                                    <p class="text-muted small">UX/UI Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-danger">Все отзывы (86)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Часто задаваемые вопросы -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Часто задаваемые вопросы</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Вопрос 1 -->
+                        <div class="card mb-3">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-danger" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                        Нужны ли специальные знания для этого курса?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Курс рассчитан на начинающих, но базовое понимание принципов дизайна будет плюсом. Если вы совсем новичок, рекомендуем сначала пройти наш курс "Основы UX-дизайна".
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Вопрос 2 -->
+                        <div class="card mb-3">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-danger collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                        Какие программы нужны для обучения?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Основная программа - Figma (бесплатная версия). Дополнительно будем работать с Adobe XD (есть бесплатная версия) и Principle для анимации.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Вопрос 3 -->
+                        <div class="card mb-3">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-danger collapsed" type="button" data-toggle="collapse" data-target="#collapseThree">
+                                        Как проходит проверка домашних заданий?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Вы загружаете работы в Figma и получаете развернутый фидбек от преподавателя. Также есть чат курса, где можно обсудить работы с другими студентами.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="py-5 bg-danger text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Готовы стать UI-дизайнером?</h2>
+            <p class="lead mb-4">Начните обучение сегодня и получите скидку 30%</p>
+            <a href="register.html" class="btn btn-light btn-lg mr-3">Записаться сейчас</a>
+            <a href="#" class="btn btn-outline-light btn-lg">Бесплатный урок</a>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>UX Courses</h5>
+                    <p>Профессиональные курсы по UX/UI дизайну для начинающих и практикующих специалистов.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white mr-3"><i class="fab fa-vk fa-lg"></i></a>
+                        <a href="#" class="text-white mr-3"><i class="fab fa-telegram fa-lg"></i></a>
+                        <a href="#" class="text-white mr-3"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Главная</a></li>
+                        <li><a href="catalog.html" class="text-white">Каталог курсов</a></li>
+                        <li><a href="learning.html" class="text-white">Обучение</a></li>
+                        <li><a href="consultation.html" class="text-white">Консультации</a></li>
+                        <li><a href="account.html" class="text-white">Личный кабинет</a></li>
+                        <li><a href="support.html" class="text-white">Поддержка</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope mr-2"></i> info@uxcourses.ru</li>
+                        <li><i class="fas fa-phone mr-2"></i> +7 (962) 858-83-62</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Станица Ленинградская, Ул. Красная 152</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Подписаться на новости</h5>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Ваш email">
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-block">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 UX Courses. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

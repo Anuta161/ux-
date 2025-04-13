@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Courses - Заказать консультацию</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .consultation-hero {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 60px 0;
+        }
+        .consultation-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .consultation-icon {
+            font-size: 2.5rem;
+            color: #6e8efb;
+        }
+        .benefit-item {
+            margin-bottom: 20px;
+        }
+        .form-control, .custom-select {
+            height: calc(1.5em + 1rem + 2px);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+        .btn-primary {
+            background-color: #6e8efb;
+            border-color: #6e8efb;
+        }
+        .btn-primary:hover {
+            background-color: #5a7df4;
+            border-color: #5a7df4;
+        }
+        .nav-item.active .nav-link {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-user-circle mr-2"></i>UX Courses
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">Каталог курсов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learning.html">Обучение</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Поддержка</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="consultation.html">Консультация</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light ml-2" href="register.html">Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Хлебные крошки -->
+    <section class="py-3 bg-light">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Консультация</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Герой-секция -->
+    <section class="consultation-hero">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Профессиональная консультация</h1>
+            <p class="lead mb-4">Получите индивидуальные рекомендации по обучению и карьере в UX-дизайне</p>
+        </div>
+    </section>
+
+    <!-- Основное содержание -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card consultation-card h-100 p-4">
+                        <h2 class="mb-4">Заполните форму</h2>
+                        <form id="consultationForm">
+                            <div class="form-group">
+                                <label for="name">Ваше имя *</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="+7 (___) ___-__-__">
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">Меня интересует *</label>
+                                <select class="custom-select" id="interest" required>
+                                    <option value="" disabled selected>Выберите вариант</option>
+                                    <option value="career">Смена профессии на UX-дизайн</option>
+                                    <option value="skills">Повышение квалификации</option>
+                                    <option value="course">Подбор подходящего курса</option>
+                                    <option value="portfolio">Портфолио и трудоустройство</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Опыт в дизайне *</label>
+                                <select class="custom-select" id="experience" required>
+                                    <option value="" disabled selected>Выберите вариант</option>
+                                    <option value="none">Нет опыта</option>
+                                    <option value="beginner">Начинающий (менее 1 года)</option>
+                                    <option value="middle">Средний (1-3 года)</option>
+                                    <option value="senior">Опытный (более 3 лет)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Ваши вопросы и пожелания</label>
+                                <textarea class="form-control" id="message" rows="3" placeholder="Опишите вашу ситуацию и что вы хотели бы узнать"></textarea>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="agree" required checked>
+                                <label class="form-check-label" for="agree">Я согласен на обработку персональных данных *</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block btn-lg mt-3">
+                                <i class="fas fa-paper-plane mr-2"></i>Отправить заявку
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card consultation-card h-100 p-4">
+                        <h2 class="mb-4">Что вы получите</h2>
+                        
+                        <div class="benefit-item d-flex">
+                            <div class="mr-4">
+                                <i class="fas fa-user-tie consultation-icon"></i>
+                            </div>
+                            <div>
+                                <h4>Индивидуальный подход</h4>
+                                <p class="text-muted">Консультация с экспертом, который учтет ваш текущий уровень, цели и возможности</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item d-flex">
+                            <div class="mr-4">
+                                <i class="fas fa-road consultation-icon"></i>
+                            </div>
+                            <div>
+                                <h4>План развития</h4>
+                                <p class="text-muted">Пошаговые рекомендации по обучению и построению карьеры в UX-дизайне</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item d-flex">
+                            <div class="mr-4">
+                                <i class="fas fa-book-open consultation-icon"></i>
+                            </div>
+                            <div>
+                                <h4>Подбор курсов</h4>
+                                <p class="text-muted">Рекомендации по подходящим именно вам программам обучения</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item d-flex">
+                            <div class="mr-4">
+                                <i class="fas fa-briefcase consultation-icon"></i>
+                            </div>
+                            <div>
+                                <h4>Карьерные перспективы</h4>
+                                <p class="text-muted">Советы по составлению портфолио и поиску работы в отрасли</p>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h4 class="mb-3">Как проходит консультация</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary mr-2"></i> <strong>Бесплатная</strong> 30-минутная онлайн-встреча</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary mr-2"></i> В <strong>удобное для вас время</strong> (вы укажете при записи)</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary mr-2"></i> <strong>Zoom, Skype</strong> или другой удобный сервис</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary mr-2"></i> <strong>Ответы на все ваши вопросы</strong> от практикующего специалиста</li>
+                        </ul>
+                        
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-info-circle mr-2"></i> После отправки формы наш менеджер свяжется с вами в течение 1 рабочего дня для уточнения деталей.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Отзывы о консультациях</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"Консультация помогла мне понять, с чего начать переход в UX-дизайн. Эксперт подробно объяснил, какие навыки мне нужно развивать и какие курсы выбрать."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Александра" class="rounded-circle mr-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Александра</h6>
+                                    <small class="text-muted">Бывший маркетолог</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"После консультации я точно знал, какие курсы мне нужны для роста. Сэкономил время и деньги, сразу выбрав подходящую программу."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Дмитрий" class="rounded-circle mr-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Дмитрий</h6>
+                                    <small class="text-muted">Начинающий UX-дизайнер</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <p class="card-text">"Получил ценные советы по улучшению портфолио. Через месяц после консультации получил предложение о работе!"</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Екатерина" class="rounded-circle mr-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Екатерина</h6>
+                                    <small class="text-muted">Фрилансер</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="catalog.html" class="btn btn-outline-primary">Посмотреть все курсы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Остались вопросы?</h2>
+            <p class="lead mb-4">Свяжитесь с нами любым удобным способом</p>
+            <a href="support.html" class="btn btn-light btn-lg mr-3">Написать в поддержку</a>
+            <a href="tel:+79628588362" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-phone mr-2"></i>+7 (962) 858-83-62
+            </a>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>UX Courses</h5>
+                    <p>Профессиональные курсы по UX-дизайну для начинающих и практикующих специалистов.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white mr-3"><i class="fab fa-vk fa-lg"></i></a>
+                        <a href="#" class="text-white mr-3"><i class="fab fa-telegram fa-lg"></i></a>
+                        <a href="#" class="text-white mr-3"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Главная</a></li>
+                        <li><a href="catalog.html" class="text-white">Каталог курсов</a></li>
+                        <li><a href="learning.html" class="text-white">Обучение</a></li>
+                        <li><a href="account.html" class="text-white">Личный кабинет</a></li>
+                        <li><a href="support.html" class="text-white">Поддержка</a></li>
+                        <li><a href="consultation.html" class="text-white font-weight-bold">Консультация</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope mr-2"></i> info@uxcourses.ru</li>
+                        <li><i class="fas fa-phone mr-2"></i> +7 (962) 858-83-62</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Станица Ленинградская, Ул. Красная 152</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Подписаться на новости</h5>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Ваш email">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 UX Courses. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Обработка формы
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Проверка заполнения обязательных полей
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+            
+            if (!isValid) {
+                alert('Пожалуйста, заполните все обязательные поля (отмечены *)');
+                return;
+            }
+            
+            // Здесь можно добавить AJAX-запрос для отправки формы
+            // или просто показать сообщение об успехе
+            
+            // Создаем модальное окно вместо alert
+            const successModal = `
+                <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Спасибо за заявку!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-center py-4">
+                                    <i class="fas fa-check-circle fa-5x text-success mb-4"></i>
+                                    <p>Ваша заявка на консультацию принята!</p>
+                                    <p>Наш менеджер свяжется с вами в течение 1 рабочего дня.</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Хорошо</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', successModal);
+            $('#successModal').modal('show');
+            
+            // Очистка формы
+            this.reset();
+            
+            // Удаляем модальное окно после закрытия
+            $('#successModal').on('hidden.bs.modal', function () {
+                $(this).remove();
+            });
+            
+            // В реальном проекте здесь будет отправка данных на сервер
+            // Например:
+            /*
+            const formData = new FormData(this);
+            fetch('send-consultation.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    // Показываем модальное окно успеха
+                } else {
+                    alert('Произошла ошибка. Пожалуйста, попробуйте позже.');
+                }
+            });
+            */
+        });
+        
+        // Маска для телефона (простая реализация)
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let x = this.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            this.value = !x[2] ? x[1] : '+7 (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+        });
+    </script>
+</body>
+</html>

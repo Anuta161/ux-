@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы UX-дизайна | UX Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .course-hero {
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .module-card {
+            border-left: 4px solid #4e73df;
+            transition: all 0.3s;
+        }
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация (аналогичная index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- ... -->
+    </nav>
+
+    <!-- Герой секция курса -->
+    <section class="course-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge badge-light mb-3">Новичок</span>
+                    <h1 class="display-4 mb-3">Основы UX-дизайна</h1>
+                    <p class="lead">4-недельный курс для начинающих UX-дизайнеров</p>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="mr-4">
+                            <i class="fas fa-star text-warning mr-1"></i>
+                            <span>4.8 (124 отзыва)</span>
+                        </div>
+                        <div class="mr-4">
+                            <i class="fas fa-user-graduate mr-1"></i>
+                            <span>320 студентов</span>
+                        </div>
+                    </div>
+                    <a href="register.html" class="btn btn-light btn-lg mr-3">Записаться на курс</a>
+                    <a href="#program" class="btn btn-outline-light btn-lg">Программа курса</a>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <img src="https://avatars.mds.yandex.net/i?id=a2e4e0675ee7f281a5a88ca96cd9f60e_l-11386386-images-thumbs&n=13" alt="Основы UX" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О курсе -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">О курсе</h2>
+                    <p>Этот курс познакомит вас с основами пользовательского опыта (UX) и принципами проектирования интерфейсов. Вы узнаете, как проводить исследования пользователей, создавать персонажи и пользовательские сценарии, проектировать информационную архитектуру и тестировать свои решения.</p>
+                    
+                    <h3 class="mt-5 mb-4">Для кого этот курс</h3>
+                    <ul>
+                        <li>Начинающие UX-дизайнеры</li>
+                        <li>Веб-дизайнеры, желающие углубить знания</li>
+                        <li>Продуктовые менеджеры</li>
+                        <li>Разработчики, желающие понять UX</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Детали курса</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="far fa-clock mr-2"></i>Длительность</span>
+                                    <span class="badge badge-primary">4 недели</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-tasks mr-2"></i>Уроки</span>
+                                    <span class="badge badge-primary">12 уроков</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-project-diagram mr-2"></i>Проекты</span>
+                                    <span class="badge badge-primary">3 проекта</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-certificate mr-2"></i>Сертификат</span>
+                                    <span class="badge badge-success">Да</span>
+                                </li>
+                            </ul>
+                            <a href="register.html" class="btn btn-primary btn-block mt-3">Записаться сейчас</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Программа курса -->
+    <section id="program" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Программа курса</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">Неделя 1</span>
+                            <h4>Введение в UX-дизайн</h4>
+                            <ul>
+                                <li>Что такое UX и почему это важно</li>
+                                <li>Основные принципы UX-дизайна</li>
+                                <li>Разница между UX и UI</li>
+                                <li>Процесс UX-дизайна</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">Неделя 2</span>
+                            <h4>Исследования пользователей</h4>
+                            <ul>
+                                <li>Методы исследования пользователей</li>
+                                <li>Создание персонажей (Personas)</li>
+                                <li>Пользовательские сценарии</li>
+                                <li>Анализ конкурентов</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">Неделя 3</span>
+                            <h4>Проектирование интерфейсов</h4>
+                            <ul>
+                                <li>Информационная архитектура</li>
+                                <li>Создание user flow</li>
+                                <li>Прототипирование (low и high fidelity)</li>
+                                <li>Основы юзабилити</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card module-card h-100">
+                        <div class="card-body">
+                            <span class="badge badge-primary mb-2">Неделя 4</span>
+                            <h4>Тестирование и итерации</h4>
+                            <ul>
+                                <li>Методы юзабилити-тестирования</li>
+                                <li>Сбор и анализ фидбека</li>
+                                <li>Итерации дизайна</li>
+                                <li>Подготовка дизайна к передаче разработчикам</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преподаватель -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Преподаватель</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="media">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="mr-4 rounded-circle" width="120" alt="Преподаватель">
+                        <div class="media-body">
+                            <h4>Анна Смирнова</h4>
+                            <p class="text-muted">Lead UX Designer в Яндекс</p>
+                            <p>Опыт работы в UX более 8 лет. Работала над продуктами для Яндекса, Сбербанка и Mail.ru Group. Специализируется на исследованиях пользователей и проектировании сложных интерфейсов.</p>
+                            <div class="d-flex">
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2"><i class="fab fa-behance"></i></a>
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Отзывы студентов</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"Отличный курс для старта в UX! Все объясняется понятно и с примерами из реальной практики."</p>
+                            <div class="media mt-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="mr-3 rounded-circle" width="50" alt="Студент">
+                                <div class="media-body">
+                                    <h6 class="mt-0">Иван Петров</h6>
+                                    <p class="text-muted small">Веб-дизайнер</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Еще 2 отзыва аналогично -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Готовы начать обучение?</h2>
+            <p class="lead mb-4">Присоединяйтесь к курсу "Основы UX-дизайна" и сделайте первый шаг к новой карьере</p>
+            <a href="register.html" class="btn btn-light btn-lg mr-3">Записаться сейчас</a>
+            <a href="#program" class="btn btn-outline-light btn-lg">Программа курса</a>
+        </div>
+    </section>
+
+    <!-- Подвал (аналогичный index.html) -->
+    <footer class="bg-dark text-white py-5">
+        <!-- ... -->
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
